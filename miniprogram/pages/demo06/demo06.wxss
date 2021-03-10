@@ -1,0 +1,10 @@
+/* pages/demo06/demo06.wxss */
+image {
+  box-sizing: border-box;
+  border: 1px solid red;
+  width: 100%;
+}
+swiper {
+  width: 100%;
+  height: calc(100vw * 352 / 1125);
+}

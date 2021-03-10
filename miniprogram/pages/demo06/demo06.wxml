@@ -1,0 +1,113 @@
+<!-- 1、text标签 -->
+<!-- text标签可以实现以下功能 -->
+<!-- 
+  1、长按可以复制（selectable）
+  2、对文本内容可解码（decode）
+ -->
+<text selectable decode>
+  test&nbsp;123&lt;
+</text>
+
+<!-- 2、image标签 -->
+<!-- 由于腾讯限制小程序最大为2M，所以要使用图床技术 -->
+<!-- 默认宽高为320*240px -->
+<!-- 
+  mode属性决定了图片内容如何和图片宽高做适配
+  mode有以下几种属性：
+    ①scaleToFill 默认值 图片宽高完全拉伸填满image;
+    ②aspectFit 保持宽高比，确保长边显示出来(轮播图常用);(常用)
+    ③aspectFill 保持纵横比，确保短边显示出来;
+    ④widthFix 以前的Web图片模式，宽度指定后长度自适应;(常用)
+ -->
+ <!-- 小程序的图片直接支持懒加载 lazy-load -->
+<image src="https://i.loli.net/2021/03/10/hjM2dpF6oBVnLyi.png" mode="aspectFit" lazy-load></image>
+
+<!-- 3、swiper标签 -->
+<!-- 
+  swiper起到轮播图的作用，每一个轮播项就是swiper-item
+  swiper存在默认样式：width:100%, height:150px
+  注意：swiper标签无法由内容撑高！
+  通过原图比例的宽度和高度给swiper定义宽高
+ -->
+ <!-- autoplay自动轮播(默认5s) -->
+ <!-- interval修改自动轮播时间(单位ms) -->
+ <!-- circular衔接轮播 -->
+ <!-- indicator-dots显示指示器 -->
+ <!-- indicator-color指示器未选中颜色 -->
+ <!-- indicator-active-color指示器选中颜色 -->
+<swiper autoplay interval="1000" circular indicator-dots indicator-color="#0094ff" indicator-active-color="#ff0094">
+  <swiper-item>
+    <image mode="widthFix" src="https://aecpm.alicdn.com/simba/img/TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg"></image>
+  </swiper-item>
+  <swiper-item>
+    <image mode="widthFix" src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"></image>
+  </swiper-item>
+  <swiper-item>
+    <image mode="widthFix" src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg"></image>
+  </swiper-item>
+</swiper>
+
+<!-- 4、navigator标签 -->
+<!-- 与a标签不同的是navigator是一个块级元素，默认会换行 -->
+<!-- url需要跳转的路径(相对路径) -->
+<!-- target要跳转到当前小程序还是其他小程序的界面，self自己，miniProgram其他小程序 -->
+<!-- open-type跳转方式(详见note) -->
+<navigator url="/pages/demo01/demo01">Demo01</navigator>
+
+<!-- 5、rich-text标签 -->
+<!-- 富文本标签，类似于Vue中的v-html -->
+<!-- nodes属性来实现，①接受标签字符串；②接收对象数组 -->
+<rich-text nodes="{{html_1}}"></rich-text>
+<rich-text nodes="{{html_2}}"></rich-text>
+
+<!-- 6、button标签 -->
+<!-- 
+  外观方面
+  ①size控制大小：default、mini
+  ②type控制颜色：default(灰色)、primary(绿色)、warn(红色)
+  ③plain控制边框
+  ④loading是否含有加载图标
+ -->
+<button>按钮</button>
+<button size="mini">按钮</button>
+<button type="primary">按钮</button>
+<button type="warn">按钮</button>
+<button plain type="primary">按钮</button>
+<button loading>按钮</button>
+<!-- 
+  开放能力(open-type)，如下
+ -->
+ <button open-type="contact">客服</button>
+ <button open-type="share">分享</button>
+ <button open-type="getPhoneNumber">获取电话号码</button>
+ <button open-type="getUserInfo">获取用户信息</button>
+ <button open-type="launchApp">直接打开app</button>
+ <button open-type="openSetting">打开内置授权页面</button>
+ <button open-type="feedback">打开内置意见反馈</button>
+
+ <!-- 7、icon标签 -->
+ <!-- type图标类型 -->
+ <!-- 'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel','download', 'search', 'clear' -->
+ <!-- size图标大小 -->
+ <!-- color图标颜色 -->
+ <icon class="" type="success" size="60" color="green"></icon>
+ <icon class="" type="info" size="60" color="red"></icon>
+
+ <!-- 8、radio标签 -->
+ <!-- 需要搭配radio-group一起使用 -->
+ <!-- value选中的单选框的值 -->
+ <!-- 选中后触发事件 -->
+ <radio-group bindchange="handleChange">
+   <radio value="male">男</radio>
+   <radio value="female">女</radio>
+ </radio-group>
+ <view>{{gender}}</view>
+
+ <!-- 9、checkbox标签 -->
+ <!-- 需要搭配checkbox-group一起使用 -->
+ <checkbox-group bindchange="handleItemChange">
+   <checkbox wx:for="{{list}}" wx:key="id" value="{{item.value}}">
+     {{item.name}}
+   </checkbox>
+ </checkbox-group>
+<text>{{fruit}}</text>
