@@ -1,0 +1,18 @@
+<!--pages/demo02/demo02.wxml-->
+<!-- 输入事件绑定 -->
+<!-- 给input绑定input事件，绑定关键字: bindinput -->
+<!-- 获取输入内容方法：通过事件源对象获取 -->
+<!-- 
+    将输入框的值赋值给data:
+    this.setData({
+        num:e.detail.value
+    })
+ -->
+<input type="text" bindinput="handleInput"/>
+<view>{{num}}</view>
+
+<!-- 点击事件绑定 -->
+<!-- 给button绑定tap事件，绑定关键字：bindtap -->
+<!-- 只能通过自定义属性传参，如下 -->
+<button bindtap="handleTap" data-operation="{{1}}">+</button>
+<button bindtap="handleTap" data-operation="{{-1}}">-</button>
