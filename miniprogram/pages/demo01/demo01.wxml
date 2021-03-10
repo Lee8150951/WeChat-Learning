@@ -1,0 +1,98 @@
+<!--pages/demo01/demo01.wxml-->
+<!-- 
+  1. text相当于web开发中的span标签，行内元素，不会换行
+  2. view相当于web开发中的div标签，块级元素，会换行
+ -->
+<!-- 1、字符串数据绑定 -->
+<view>{{msg}}</view>
+<!-- 2、数字类型 -->
+<view>{{number}}</view>
+<!-- 3、布尔类型 -->
+<view>{{boolean}}</view>
+<!-- 4、对象类型 -->
+<text>{{person.name}}</text>
+<text>+{{person.age}}</text>
+<text>+{{person.height}}</text>
+<text>+{{person.weight}}</text>
+<!-- 5、标签属性中使用数据绑定 -->
+<view data-num="{{number}}">自定义属性</view>
+<!-- 6、使用布尔类型充当checkbox -->
+<view>
+  <checkbox checked="{{isChecked}}"/>
+</view>
+<!-- 7、运算表达式 -->
+<!-- 在花括号中加入表达式 -->
+<!-- 
+  表达式包括：
+    数字的加减乘除，字符串的拼接，三元表达式等等
+ -->
+<view>{{1+1}}</view>
+<view>{{'1'+'1'}}</view>
+<view>{{10%2===0?'偶数':'奇数'}}</view>
+<!-- 8、列表循环 -->
+<!-- 
+  使用方法：
+  wx:for="{{数组}}" wx:for-item="{{循环项的名字}}" wx:for-index="{{循环项的索引}}"
+  wx:key="{{}}" 使用wx:key提高渲染性能(括号内绑定唯一属性或者*this)
+  只有一层循环的时候可以省略(wx:for-item="{{循环项的名字}}" wx:for-index="{{循环项的索引}}")
+ -->
+<view>
+  <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+    索引：{{index}}
+    --
+    值：{{item.id}} + {{item.name}}
+  </view>
+  <!-- 省略版 -->
+  <view wx:for="{{list}}" wx:for-item="item">
+    索引：{{index}}
+    --
+    值：{{item.id}} + {{item.name}}
+  </view>
+</view>
+<!-- 9、对象循环 -->
+<!-- 
+  使用方法：
+  wx:for="{{对象}}" wx:for-item="对象的值" wx:for-index="对象的属性"
+  循环对象时最好把item和index的名称都修改一下：
+  wx:for-item="value" wx:for-index="key"
+ -->
+<view>
+  <view wx:for="{{person}}" wx:for-item="value" wx:for-index="key" wx:key="name">
+    属性：{{key}}
+    --
+    值：{{value}}
+  </view>
+</view>
+<!-- 10、block标签的使用 -->
+<!-- 占位符标签，在写代码的时候可以看到该标签，页面渲染时小程序会把它移除掉 -->
+<view>
+  <block wx:for="{{person}}" wx:for-item="value" wx:for-index="key" wx:key="name">
+    属性：{{key}}
+    --
+    值：{{value}}
+  </block>
+</view>
+<!-- 11、条件渲染(wx:if) -->
+<!-- wx:if="{{}}" 传入boolean值，控制层级是否显示 -->
+<!-- wx:if="{{}}", wx:elif="{{}}", wx:else -->
+<view>
+  <view wx:if="{{true}}">true</view>
+  <view wx:if="{{false}}">false</view>
+  
+  <view wx:if="{{true}}">1</view>
+  <view wx:elif="{{false}}">2</view>
+
+  <view wx:if="{{false}}">1</view>
+  <view wx:elif="{{false}}">2</view>
+  <view wx:else>3</view>
+</view>
+<!-- 12、hidden控制显隐 -->
+<view hidden>隐藏</view>
+<view hidden="{{false}}">显示</view>
+<view hidden="{{true}}">隐藏</view>
+<!-- 
+  wx:if和hidden分别在什么时候使用？
+  频繁切换显隐时使用hidden，不频繁切换时使用wx:if
+  hidden原理：dispaly:none(添加样式的方式)
+  wx:if原理：直接删除该标签所有内容(损耗严重)
+ -->

@@ -1,0 +1,33 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/search/search",
+    "pages/logs/logs",
+    "pages/demo01/demo01"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#0094ff",
+    "navigationBarTitleText": "Demo",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "icon/no-activated/faxian.png",
+      "selectedIconPath": "icon/activated/faxian.png"
+    }, {
+      "pagePath": "pages/demo01/demo01",
+      "text": "demo01",
+      "iconPath": "icon/no-activated/chuangzuo.png",
+      "selectedIconPath": "icon/activated/chuangzuo.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
