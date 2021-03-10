@@ -1,0 +1,7 @@
+/* pages/demo05/demo05.less */
+text {
+  color: yellow;
+}
+view {
+  color: green;
+}

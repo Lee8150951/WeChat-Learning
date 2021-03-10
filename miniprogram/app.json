@@ -4,7 +4,10 @@
     "pages/search/search",
     "pages/logs/logs",
     "pages/demo01/demo01",
-    "pages/demo02/demo02"
+    "pages/demo02/demo02",
+    "pages/demo03/demo03",
+    "pages/demo04/demo04",
+    "pages/demo05/demo05"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -30,6 +33,16 @@
     }, {
       "pagePath": "pages/demo02/demo02",
       "text": "demo02",
+      "iconPath": "icon/no-activated/chuangzuo.png",
+      "selectedIconPath": "icon/activated/chuangzuo.png"
+    }, {
+      "pagePath": "pages/demo04/demo04",
+      "text": "demo04",
+      "iconPath": "icon/no-activated/chuangzuo.png",
+      "selectedIconPath": "icon/activated/chuangzuo.png"
+    }, {
+      "pagePath": "pages/demo05/demo05",
+      "text": "demo05",
       "iconPath": "icon/no-activated/chuangzuo.png",
       "selectedIconPath": "icon/activated/chuangzuo.png"
     }]
