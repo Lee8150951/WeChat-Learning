@@ -1,0 +1,10 @@
+<!-- 使用自定义标签前需要先在该界面对应的json文件中进行注册 -->
+<!-- "usingComponents": {"Tabs": "/components/Tabs/Tabs"} -->
+<!-- 父组件界面(页面)向子组件传递数据通过标签属性的方式来传递 -->
+<!-- 子向父传值，在父组件标签上加入自定义事件 -->
+<Tabs tabs="{{tabs}}" binditemChange="handleItemChange">
+  <block wx:if="{{tabs[0].isActive}}">0</block>
+  <block wx:elif="{{tabs[1].isActive}}">1</block>
+  <block wx:elif="{{tabs[2].isActive}}">2</block>
+  <block wx:else>3</block>
+</Tabs>

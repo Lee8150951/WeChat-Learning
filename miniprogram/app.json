@@ -8,7 +8,8 @@
     "pages/demo03/demo03",
     "pages/demo04/demo04",
     "pages/demo05/demo05",
-    "pages/demo06/demo06"
+    "pages/demo06/demo06",
+    "pages/demo07/demo07"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -29,6 +30,11 @@
     }, {
       "pagePath": "pages/demo06/demo06",
       "text": "demo06",
+      "iconPath": "icon/no-activated/chuangzuo.png",
+      "selectedIconPath": "icon/activated/chuangzuo.png"
+    }, {
+      "pagePath": "pages/demo07/demo07",
+      "text": "demo07",
       "iconPath": "icon/no-activated/chuangzuo.png",
       "selectedIconPath": "icon/activated/chuangzuo.png"
     }]
